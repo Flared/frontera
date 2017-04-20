@@ -110,7 +110,8 @@ class FronteraScheduler(Scheduler):
         for element in result:
             if isinstance(element, Request):
                 links.append(element)
-            yield element
+            else:
+                yield element
         frontier_request = response.meta[b'frontier_request']
         self.frontier.page_crawled(response)  # removed frontier part from .meta
         # putting it back, to persist .meta from original request
@@ -145,7 +146,6 @@ class FronteraScheduler(Scheduler):
         if not self.frontier.manager.finished and \
                 len(self) < self.crawler.engine.downloader.total_concurrency and \
                 self._delay_next_call < time():
-
             info = self._get_downloader_info()
             requests = self.frontier.get_next_requests(key_type=info['key_type'], overused_keys=info['overused_keys'])
             for request in requests:
