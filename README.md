@@ -1,5 +1,7 @@
 # Frontera
 
+# USE [THE NEW FORK](https://github.com/Flared/frontera-2)
+
 ## Overview
 
 Frontera is a web crawling framework consisting of [crawl frontier](http://nlp.stanford.edu/IR-book/html/htmledition/the-url-frontier-1.html), 
